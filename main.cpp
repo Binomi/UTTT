@@ -20,10 +20,9 @@ void reset () {
 void printField() {
 		cout << "----------------------------------------------" << endl;	
     for(int i=0; i<3; i++) {
-
-		cout << "| " << field[i][0] << "  " << field[i][1] << "  " << field[i][2] << "\t| " << field[i+1][0] << "  " <<field[i+1][1] << "  " <<field[i+1][2] << "\t| " << field[i+2][0] << "  " << field[i+2][1] << "  " << field[i+2][2] << " |" << endl;
-		cout << "| " << field[2*i][0] << "  " << field[2*i][1] << "  " << field[2*i][2] << "\t| " << field[2*i+1][0] << "  " <<field[2*i+1][1] << "  " <<field[2*i+1][2] << "\t| " << field[2*i+2][0] << "  " << field[2*i+2][1] << "  " << field[2*i+2][2] << " |" << endl;
-		cout << "| " << field[3*i][0] << "  " << field[3*i][1] << "  " << field[3*i][2] << "\t| " << field[3*i+1][0] << "  " <<field[3*i+1][1] << "  " <<field[3*i+1][2] << "\t| " << field[3*i+2][0] << "  " << field[3*i+2][1] << "  " << field[3*i+2][2] << " |" << endl;
+	for(int j=0;j<3; j++){
+		cout <<"| " << field[i*3][j*3] << "  " << field[i*3][j*3+1] << "  " << field[i*3][j*3+2] << "\t| " << field[i*3+1][j*3] << "  " <<field[i*3+1][j*3+1] << "  " <<field[i*3+1][j*3+2] << "\t| " << field[i*3+2][j*3] << "  " << field[i*3+2][j*3+1] << "  " << field[i*3+2][j*3+2] << " |" << endl;
+	}
 		cout << "----------------------------------------------" << endl;
 
 	    //}
