@@ -120,12 +120,15 @@ int main()
     	reset();
    	int k=0;
     	int player=1;
+	int kOld=k;
     	while(isActive && (fieldsDecided<9)) {
         	randomPlayer(player);
         	k++;
         	player*=-1;
     	}
-    	//cout << k << endl;
+	if (kOld != k){
+    		cout << playedGames << "\t" << wonGames[0] << "\t" << wonGames[1] << "\t" << k << endl;
+	}
     	//printField();
     //sleep(1);
     }
