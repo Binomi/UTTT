@@ -1,6 +1,7 @@
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <time.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -8,6 +9,7 @@ int field[11][9];
 int field_pos=-1;
 int fieldsDecided=0;
 bool isActive=true;
+int wonGames[3]=[0,0,0]
 
 void reset () {
     for(int i=0; i<sizeof(field)/sizeof(field[0]); i++) {
@@ -15,6 +17,9 @@ void reset () {
             field[i][j]=0;
         }
     }
+    fieldsDecided=0;
+    isActive=true;
+    field_pos=-1;
 }
 
 void printField() {
@@ -35,6 +40,9 @@ void printField() {
 */
     }
     cout << endl;
+    for(int i=0;i<3;i++){
+	cout << field[9][i*3] << " | " << field[9][i*3+1] << " | " << field[9][i*3+2] << endl;
+    }
 }
 
 int victory (int arr[]) {
@@ -100,18 +108,20 @@ void randomPlayer(int player) {
 
 int main()
 {
-    srand(time(0));
-
-    reset();
-    int k=0;
-    int player=1;
-    while(isActive && (fieldsDecided<9)) {
-        randomPlayer(player);
-        k++;
-        player*=-1;
+    while (true) {
+    	srand(time(0));
+    	reset();
+   	int k=0;
+    	int player=1;
+    	while(isActive && (fieldsDecided<9)) {
+        	randomPlayer(player);
+        	k++;
+        	player*=-1;
+    	}
+    	cout << k << endl;
+    	printField();
+    //sleep(1);
     }
-    cout << k << endl;
-    printField();
     return 0;
 }
 
