@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 
@@ -62,8 +63,6 @@ bool set(int player, int pos) {
     if (result!=0) {
         field[9][field_pos]=result;
         fieldsDecided++;
-        cout << field_pos << endl;
-        printField();
         int overall_vic=victory(field[9]);
         if(overall_vic!=0) {
             cout << "Spieler " << overall_vic << " hat das gesamte Spiel gewonnen." << endl;
@@ -71,7 +70,7 @@ bool set(int player, int pos) {
         }
     } else {tie(field_pos);}
 
-    if (field[9][field_pos]==0){field_pos=pos;}
+    if (field[9][pos]==0){field_pos=pos;}
     else {field_pos=-1;}
 
     return true;
@@ -93,6 +92,8 @@ void randomPlayer(int player) {
 
 int main()
 {
+    srand(time(0));
+
     reset();
     int k=0;
     int player=1;
