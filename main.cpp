@@ -18,13 +18,22 @@ void reset () {
 }
 
 void printField() {
-    for(int i=0; i<11; i++) {
-        cout << i << ": ";
+		cout << "----------------------------------------------" << endl;	
+    for(int i=0; i<3; i++) {
+
+		cout << "| " << field[i][0] << "  " << field[i][1] << "  " << field[i][2] << "\t| " << field[i+1][0] << "  " <<field[i+1][1] << "  " <<field[i+1][2] << "\t| " << field[i+2][0] << "  " << field[i+2][1] << "  " << field[i+2][2] << " |" << endl;
+		cout << "| " << field[2*i][0] << "  " << field[2*i][1] << "  " << field[2*i][2] << "\t| " << field[2*i+1][0] << "  " <<field[2*i+1][1] << "  " <<field[2*i+1][2] << "\t| " << field[2*i+2][0] << "  " << field[2*i+2][1] << "  " << field[2*i+2][2] << " |" << endl;
+		cout << "| " << field[3*i][0] << "  " << field[3*i][1] << "  " << field[3*i][2] << "\t| " << field[3*i+1][0] << "  " <<field[3*i+1][1] << "  " <<field[3*i+1][2] << "\t| " << field[3*i+2][0] << "  " << field[3*i+2][1] << "  " << field[3*i+2][2] << " |" << endl;
+		cout << "----------------------------------------------" << endl;
+
+	    //}
+	    //cout << " | ";
+	/*cout << i << ": ";
         for(int j=0; j<9; j++) {
             cout << field[i][j] << "  ";
         }
         cout << endl;
-
+*/
     }
     cout << endl;
 }
