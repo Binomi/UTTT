@@ -47,7 +47,10 @@ int victory (int arr[]) {
 }
 
 void tie(int pos) {
-    if(field[10][pos]==9) {field[9][pos]=2;}
+    if(field[10][pos]==9) {
+        field[9][pos]=2;
+        fieldsDecided++;
+    }
 }
 
 bool set(int player, int pos) {
@@ -59,6 +62,7 @@ bool set(int player, int pos) {
     if (result!=0) {
         field[9][field_pos]=result;
         fieldsDecided++;
+        cout << field_pos << endl;
         printField();
         int overall_vic=victory(field[9]);
         if(overall_vic!=0) {
@@ -89,6 +93,7 @@ void randomPlayer(int player) {
 
 int main()
 {
+    reset();
     int k=0;
     int player=1;
     while(isActive && (fieldsDecided<9)) {
