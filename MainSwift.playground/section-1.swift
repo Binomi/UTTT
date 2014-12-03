@@ -2,7 +2,17 @@
 
 import Cocoa
 
-var field:[[]]
+var field = Array<Array<Int>>()
+var rowFieldNr = 11
+var columnFieldNr = 9
+for i in 0..<columnFieldNr {
+    field.append(Array(count: rowFieldNr, repeatedValue: Int()))
+}
+for i in 0..<columnFieldNr{
+    for j in 0..<rowFieldNr{
+        field[i][j]=0
+    }
+}
 var field_pos = -1
 var fieldsDecided = 0;
 var isActive = true;
@@ -76,8 +86,8 @@ func randomPlayer(var player:Int)->Void {
         var newFP:Int
         do {
             newFP = Int(rand())%9;
-        } while field[9][newFP] != 0 {
-        field_pos=newFP
+        } while ((field[9][newFP] != 0)) {
+            field_pos=newFP
         }
     }
     var pos=Int(rand())%9;
@@ -85,14 +95,14 @@ func randomPlayer(var player:Int)->Void {
         pos=Int(rand())%9;
     }
 }
-var k=0;
-var player=1;
-        while(isActive && (fieldsDecided<9)) {
-            randomPlayer(player);
-            k++;
-            player *= -1;
-        }
-        println(" \(k) ")
-        prvarField();
-
-
+//while true{
+    var k=0;
+    var player=1;
+    while(isActive && (fieldsDecided < 9)) {
+        randomPlayer(player);
+        k++;
+        player *= -1;
+    }
+    println(" \(k) ")
+    prvarField();
+//}
